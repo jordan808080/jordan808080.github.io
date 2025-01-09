@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Empowering global computational power with efficient scheduling and services.">
+    <meta name="keywords" content="computational power, global network, cloud computing, distributed computing, AWS, Azure, Alibaba Cloud">
+    <meta name="author" content="Global Computational Network">
+    <title>Global Computational Power Network</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Reset CSS */
+        body, h1, h2, p, ul, li, a {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #000;
+            background: #f5f5f5;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #1f2937;
+            color: #fff;
+            padding: 30px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            width: 80px;
+            height: auto;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #00bcd4;
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            margin: 0 30px;
+            min-width: 200px;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .banner {
+            background: url('./asset/banner2.png') no-repeat center center/cover;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* 半透明覆盖层 */
+        }
+
+        .banner h1 {
+            font-size: 50px;
+            color: #fff;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .mission-vision {
+            display: flex;
+            justify-content: space-between;
+            padding: 50px;
+            gap: 30px;
+            flex-wrap: nowrap;
+        }
+
+        .mission, .vision {
+            background-color: #1f2937;
+            border-radius: 15px;
+            padding: 40px;
+            flex: 1;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .mission i, .vision i {
+            font-size: 50px;
+            color: #00bcd4;
+            margin-bottom: 15px;
+        }
+
+        .mission h2, .vision h2 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .mission p, .vision p {
+            color: #e0e0e0;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .services {
+            display: flex;
+            justify-content: space-between;
+            padding: 25px; /* 缩小上/下间距 */
+            gap: 30px;
+            flex-wrap: nowrap;
+        }
+
+        .service-item {
+            background-color: #1f2937;
+            border-radius: 15px;
+            padding: 40px;
+            flex: 1;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            color: #fff;
+            text-align: center;
+            position: relative;
+        }
+
+        .service-item i {
+            font-size: 50px;
+            margin-bottom: 15px;
+            color: #00bcd4;
+        }
+
+        .service-item h3 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .service-item p {
+            color: #e0e0e0;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .provider-list {
+            overflow: hidden;
+            position: relative;
+            background-color: #f0f4f8;
+            height: 180px;
+            margin: 25px 0;
+        }
+
+        .provider-scroll {
+            display: flex;
+            gap: 25px;
+            padding: 20px 0;
+            animation: scroll 20s linear infinite;
+            white-space: nowrap;
+        }
+
+        .provider-scroll:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .provider-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            gap: 8px;
+        }
+
+        .provider-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+        }
+
+        .provider-item p {
+            margin: 0;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .footer {
+            background-color: #1f2937;
+            color: #9ca3af;
+            text-align: center;
+            padding: 30px;
+            display: flex; /* 使用 flexbox */
+            justify-content: space-between; /* 在一行内分布 p 和 social-links */
+            align-items: center; /* 垂直居中对齐 */
+        }
+
+        .footer p {
+    margin: 0; /* 移除默认的 margin，避免与其他元素重叠 */
+    font-size: 14px; /* 控制字体大小 */
+}
+
+.social-links {
+    display: flex; /* 社交链接也使用 flexbox 排列 */
+    justify-content: center; /* 居中排列社交媒体链接 */
+    gap: 30px;
+}
+
+.social-links a {
+    color: #00bcd4;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #ffffff;
+}
+    </style>
+
+</head>
+<body>
+    <!-- Header and Banner Sections -->
+    <header>
+        <img src="./asset/logo-removebg-preview.png" alt="Global Computational Network Logo" class="logo">
+        <nav>
+            <a href="#">Home</a>
+            <a href="#services">Services</a>
+            <a href="#providers">Providers</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Search services, providers...">
+        </div>
+    </header>
+
+    <div class="banner">
+        <h1>Empowering Global Computational Power</h1>
+    </div>
+
+    <section class="mission-vision">
+        <div class="mission">
+            <i class="fas fa-tachometer-alt"></i>
+            <h2>Mission</h2>
+            <p>To provide seamless access to computational power by connecting individuals and organizations to reliable providers worldwide.</p>
+        </div>
+        <div class="vision">
+            <i class="fas fa-globe"></i>
+            <h2>Vision</h2>
+            <p>To become the global leader in computational power scheduling, enabling innovation and efficiency in various industries.</p>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="service-item">
+            <i class="fas fa-tachometer-alt"></i>
+            <h3>High Efficiency</h3>
+            <p>Optimized for maximum computational performance.</p>
+        </div>
+        <div class="service-item">
+            <i class="fas fa-globe"></i>
+            <h3>Global Reach</h3>
+            <p>Connecting users to providers across the globe.</p>
+        </div>
+        <div class="service-item">
+            <i class="fas fa-cogs"></i>
+            <h3>Scalability</h3>
+            <p>Flexible solutions for businesses of all sizes.</p>
+        </div>
+    </section>
+    <section class="provider-list" id="providers">
+        <div class="provider-scroll">
+            <!-- 原始 Provider Items -->
+            <div class="provider-item">
+                <img src="./asset/aws-cloud.png" alt="AWS">
+                <p>AWS</p>
+            </div>
+            <div class="provider-item">
+                <img src="./asset/Azure-cloud.webp" alt="Azure">
+                <p>Microsoft Azure</p>
+            </div>
+            <div class="provider-item">
+                <img src="./asset/google.webp" alt="Google Cloud">
+                <p>Google Cloud</p>
+            </div>
+            <div class="provider-item">
+                <img src="./asset/alibaba-cloud.png" alt="Alibaba Cloud">
+                <p>Alibaba Cloud</p>
+            </div>
+            <div class="provider-item">
+                <img src="./asset/ibm-cloud.jpg" alt="IBM Cloud">
+                <p>IBM Cloud</p>
+            </div>
+            <div class="provider-item">
+                <img src="./asset/oracle-cloud.png" alt="Oracle Cloud">
+                <p>Oracle Cloud</p>
+            </div>
+            <div class="provider-item">
+                <img src="./asset/tencent-cloud.png" alt="Tencent Cloud">
+                <p>Tencent Cloud</p>
+            </div>
+            <div class="provider-item">
+                <img src="./asset/baidu-cloud.png" alt="Baidu Cloud">
+                <p>Baidu Cloud</p>
+            </div>
+            <div class="provider-item">
+                <img src="./asset/huawei-cloud.png" alt="Huawei Cloud">
+                <p>Huawei Cloud</p>
+            </div>
+            <div class="provider-item">
+                <img src="./asset/inspur-cloud.png" alt="Inspur">
+                <p>Inspur</p>
+            </div>
+
+            <!-- 复制的 Provider Items -->
+            <div class="provider-item">
+                <img src="./asset/aws-cloud.png" alt="AWS">
+                <p>AWS</p>
+            </div>
+            <div class="provider-item">
+                <img src="./asset/Azure-cloud.webp" alt="Azure">
+                <p>Microsoft Azure</p>
+            </div>
+            <div class="provider-item">
+                <img src="./asset/google.webp" alt="Google Cloud">
+                <p>Google Cloud</p>
+            </div>
+            <div class="provider-item">
+                <img src="./asset/alibaba-cloud.png" alt="Alibaba Cloud">
+                <p>Alibaba Cloud</p>
+            </div>
+            <div class="provider-item">
+                <img src="./asset/ibm-cloud.jpg" alt="IBM Cloud">
+                <p>IBM Cloud</p>
+            </div>
+            <div class="provider-item">
+                <img src="./asset/oracle-cloud.png" alt="Oracle Cloud">
+                <p>Oracle Cloud</p>
+            </div>
+            <div class="provider-item">
+                <img src="./asset/tencent-cloud.png" alt="Tencent Cloud">
+                <p>Tencent Cloud</p>
+            </div>
+            <div class="provider-item">
+                <img src="./asset/baidu-cloud.png" alt="Baidu Cloud">
+                <p>Baidu Cloud</p>
+            </div>
+            <div class="provider-item">
+                <img src="./asset/huawei-cloud.png" alt="Huawei Cloud">
+                <p>Huawei Cloud</p>
+            </div>
+            <div class="provider-item">
+                <img src="./asset/inspur-cloud.png" alt="Inspur">
+                <p>Inspur</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Global Computational Network. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://twitter.com/yourpage" target="_blank">Twitter</a>
+            <a href="https://t.me/yourpage" target="_blank">Telegram</a>
+            <a href="#" target="_blank">CA:</a>
+
+        </div>
+    </footer>
+</body>
+</html>
